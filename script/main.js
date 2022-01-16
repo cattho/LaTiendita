@@ -19,13 +19,14 @@ let medidaproducto="" ;
 
 
 document.addEventListener('DOMContentLoaded', () =>{
-    getData('http://localhost:4000/Productos')        
+    getData('http://localhost:4000/Productos/')        
     abrir()
-    cerrando()           
+    cerrando()
+    ramdonProducts()           
 })
 
 
-// modal ubicacion
+// modal ubicacion hecho con SweetAlert
 ubicacionPin.addEventListener('click',async () =>{
     const { value: ciudad } = await Swal.fire({
         title: 'Selecciona la ciudad de destino',
@@ -56,8 +57,6 @@ ubicacionPin.addEventListener('click',async () =>{
       }
 } )
 
-
-// dibujando ciudad
 
 // data capture//
 const getData = async (url) => {
@@ -153,36 +152,48 @@ async function showModalDescription (id) {
         `
         sumarRestar() 
     }
-       
-    function sumarRestar(){
-         // botones de agregar y quitar para modal
-         btnrestar= document.querySelector('.btnresta');
-         btnsumar= document.querySelector('.btnsuma');        
-         medidaproducto = document.querySelector('.medidaProducto');
- 
-         btnrestar.addEventListener('click', ()=>{                   
-             if(parseInt(medidaproducto.innerHTML)>1){
-                 medidaproducto.innerHTML=parseInt(medidaproducto.innerHTML)-1+" g"
-             }
-         })
-         
-         btnsumar.addEventListener('click', ()=>{    
-             medidaproducto.innerHTML=parseInt(medidaproducto.innerHTML)+1+" g"
-         })
-    }
+   
+    // funcion para sacar productos del json de manera aleatoria
+ async function ramdonProducts(){
+     const respuesta = await fetch('http://localhost:4000/Productos/')
+     data = await respuesta.json()
 
-// abrir modal
-const abrir= ()=>{
+     const productoRamdon= data[Math.floor(Math.random()*data.length)+1]
+     const productoRamdonDos= data[Math.floor(Math.random()*data.length)+1]
 
-    document.addEventListener("click",(e)=>{               
-        if(e.target.classList.contains("open-mod")){
-            const papitoidmodal= e.target.id
-            
-            showModalDescription(papitoidmodal)
-            llamarM.style.opacity = "1";
-            llamarM.style.visibility = "visible";
-        }             
-     })      
+     console.log(productoRamdon, productoRamdonDos, "prueba");
+
+}
+
+function sumarRestar(){
+        // botones de agregar y quitar para modal
+        btnrestar= document.querySelector('.btnresta');
+        btnsumar= document.querySelector('.btnsuma');        
+        medidaproducto = document.querySelector('.medidaProducto');
+
+        btnrestar.addEventListener('click', ()=>{                   
+            if(parseInt(medidaproducto.innerHTML)>1){
+                medidaproducto.innerHTML=parseInt(medidaproducto.innerHTML)-1+" g"
+            }
+        })
+        
+        btnsumar.addEventListener('click', ()=>{    
+            medidaproducto.innerHTML=parseInt(medidaproducto.innerHTML)+1+" g"
+        })
+}
+
+    // abrir modal
+    const abrir= ()=>{
+
+        document.addEventListener("click",(e)=>{               
+            if(e.target.classList.contains("open-mod")){
+                const papitoidmodal= e.target.id
+                
+                showModalDescription(papitoidmodal)
+                llamarM.style.opacity = "1";
+                llamarM.style.visibility = "visible";
+            }             
+        })      
 }
 
 // cerrar modal y carrito con boton
