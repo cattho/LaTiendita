@@ -153,7 +153,7 @@ async function showModalDescription (id) {
         sumarRestar() 
     }
    
-    // funcion para sacar productos del json de manera aleatoria
+// funcion para sacar productos del json de manera aleatoria
  async function ramdonProducts(){
      const respuesta = await fetch('http://localhost:4000/Productos/')
      data = await respuesta.json()
