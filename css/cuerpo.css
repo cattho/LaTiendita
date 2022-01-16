@@ -1,0 +1,63 @@
+.product-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.product{
+    margin: 20px;    
+    width: 300px;
+    cursor: pointer;
+}
+
+.product .descuento{
+    display: flex;
+    border-radius: 10px;
+    width: 20%;
+    margin: 2px;
+    font-size: .8rem;
+    font-weight: bold;    
+    background: var(--soft-purple);
+    color: var(--strong-purple);
+    justify-content: center;
+}
+
+.product img{
+    width: 80%;
+}
+
+.product .precio{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.product .precio span{
+    color: var(--soft-gray);
+    text-decoration: line-through;
+    font-size: 15px;
+}
+
+.product h3{
+    font-size: 15px;
+    margin: 5px 0 5px 0;
+    font-weight: lighter;
+}
+
+.product .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--btn-color);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;    
+    color: var(--bg-color);
+    width: 250px;
+    cursor: pointer;
+}
+
+.product .btn:hover{
+    background: var(--blue);
+    font-weight: bold;
+}
+

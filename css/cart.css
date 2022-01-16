@@ -1,0 +1,107 @@
+.cart-padre{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    transition: all 500ms ease;
+}
+
+.cart-padre.active{
+    display: block;
+}
+
+#cart-btn{
+    background: var(--btn-color);
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#cart-btn:hover{
+    background: var(--blue);
+}
+
+#cart-btn:focus .modal{
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid var(--soft2gray);
+}
+
+.cart-items-container{
+    position: absolute;
+    right: 0;
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: var(--bg-color);    
+    box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+    transition: all 500ms ease;
+    background: rgb(235, 235, 235);
+    transition: all 500ms ease;
+}
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-location{
+    font-size: 20px;        
+}
+
+.header .cart-items-container .cart-location-city{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;    
+    display: flex; 
+    align-items: center;
+    gap: 1.5rem;
+    border-top: 1px solid var(--soft2gray);
+}
+
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top: 1rem; right:1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color: var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color: var(--black);
+    padding-bottom: .5rem;
+}
+
+.header .cart-items-container .cart-item .content .price{
+    font-size: 1.5rem;
+    color: var(--main-color);    
+}
+
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
+}

@@ -1,0 +1,18 @@
+.swal2-popup{    
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.swal2-timer-progress-bar-container{
+    border-radius: 10px;    
+    display: none;
+}
+
+.swal2-actions{
+    width: 100%;
+   
+}
+
+.swal2-confirm{    
+    width: 100% !important;
+}

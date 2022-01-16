@@ -1,0 +1,132 @@
+.modal-shop{    
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);    
+    transition: all 500ms ease;    
+    opacity: 0;  
+    visibility: hidden;  
+}
+
+.modal-shop-container{ 
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    padding: 5px;
+    background: var(--bg-color);
+    box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+    transition: all 500ms ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;     
+}
+
+.modal-shop-image {  
+    width: 350px;    
+    align-items: center;
+    justify-content: center;    
+    position: fixed;
+    top: 15%;
+}
+
+.modal-shop-image img{
+    width: 70%;   
+}
+
+.modal-shop-text{    
+    padding: 1rem;    
+    position: fixed;
+    top: 15%;
+    width: 23%;
+    margin-left: 360px;       
+}
+
+.modal-shop-text .textIVA{
+    font-size: 12px;
+}
+
+.modal-shop-text p{
+    font-size: 15px;
+    margin: 8px 0 8px 0;
+}
+
+.modal-shop-text .madurez{
+    width: 100%;
+}
+
+.modal-shop-products{
+    position: fixed;
+    top: 45%;
+}
+
+.modal-shop-text select{
+    width: 100%;
+    margin: 8px 0 8px 0;
+    padding: 5px;
+    border-radius: 5px;    
+}
+
+.modal-shop-text .btn{
+    display: flex;
+    position: relative;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    background: var(--btn-color);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;    
+    color: var(--bg-color);
+    width: 250px;
+    cursor: pointer;
+}
+
+.modal-shop-text .btn:hover{
+    background: var(--blue);
+    font-weight: bold;    
+}
+
+.close{
+    background: var(--strong-gray);
+    border-radius: 50%;
+    float: right;
+    padding: 15px;   
+    color: white;    
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.modal-shop-container h1 h3 .textIVA p .madurez select{
+    position: relative;
+    top: 10px;
+    right: 10px;
+}
+
+.btnSumResta{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 24px;    
+    position: static;
+    width: 140px;
+    height: 40px;
+    left: 379px;
+    top: 24px;
+    box-shadow: 0px 11px 29px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+.btnresta, .btnsuma{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font-size: 1.2rem;
+}

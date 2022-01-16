@@ -1,0 +1,13 @@
+.ubicacion{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 1000px;
+}
+
+.pinMap{   
+    padding: 8px;
+    color: red;
+    font-size: 1.6rem;    
+}
