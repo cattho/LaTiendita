@@ -39,77 +39,77 @@
       "producto": "Limón",
       "categoria": "Alimentos",
       "id": 6,
-      "precio": 2800,
+      "precio": 2000,
       "image": "../images/limon.png"
     },
     {
       "producto": "Manzana Verde",
       "categoria": "Alimentos",
       "id": 7,
-      "precio": 2800,
+      "precio": 3800,
       "image": "../images/manzana_verde.png"
     },
     {
       "producto": "Mayonesa",
       "categoria": "producto",
       "id": 8,
-      "precio": 2800,
+      "precio": 8813,
       "image": "../images/mayonesa.png"
     },
     {
       "producto": "Naranja",
       "categoria": "Alimentos",
       "id": 9,
-      "precio": 2800,
+      "precio": 1418,
       "image": "../images/naranja.png"
     },
     {
       "producto": "Nopal limpio",
       "categoria": "Alimentos",
       "id": 10,
-      "precio": 2800,
+      "precio": 11715,
       "image": "../images/nopal.png"
     },
     {
       "producto": "Pan Bimbo",
       "categoria": "producto",
       "id": 11,
-      "precio": 2800,
+      "precio": 5790,
       "image": "../images/pan_bimbo_tajado_blanco.png"
     },
     {
       "producto": "Crema dental",
       "categoria": "Productos de aseo",
       "id": 12,
-      "precio": 2800,
+      "precio": 11613,
       "image": "../images/pasta_dientes.png"
     },
     {
       "producto": "Pechuga de pavo",
       "categoria": "Alimentos",
       "id": 13,
-      "precio": 2800,
+      "precio": 28000,
       "image": "../images/pechuga_pavo.png"
     },
     {
       "producto": "Tomate de arbol",
       "categoria": "Alimentos",
       "id": 14,
-      "precio": 2800,
+      "precio": 1925,
       "image": "../images/tomate_arbol.png"
     },
     {
       "producto": "Tomate rojo",
       "categoria": "Alimentos",
       "id": 15,
-      "precio": 2800,
+      "precio": 2189,
       "image": "../images/tomate_rojo.png"
     },
     {
       "producto": "Tomate verde",
       "categoria": "Alimentos",
       "id": 16,
-      "precio": 2800,
+      "precio": 2300,
       "image": "../images/tomate_verde.png"
     }
   ]
