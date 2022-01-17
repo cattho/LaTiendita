@@ -8,6 +8,12 @@
     visibility: hidden;  
 }
 
+.descripcion{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
 .modal-shop-container{ 
     width: 800px;
     height: 800px;
@@ -18,15 +24,15 @@
     transition: all 500ms ease;
     position: relative;
     overflow: hidden;
-    border-radius: 10px;     
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;     
 }
 
 .modal-shop-image {  
     width: 350px;    
     align-items: center;
-    justify-content: center;    
-    position: fixed;
-    top: 15%;
+    justify-content: center;
 }
 
 .modal-shop-image img{
@@ -34,11 +40,8 @@
 }
 
 .modal-shop-text{    
-    padding: 1rem;    
-    position: fixed;
-    top: 15%;
-    width: 23%;
-    margin-left: 360px;       
+    padding: 1rem; 
+              
 }
 
 .modal-shop-text .textIVA{
@@ -54,10 +57,6 @@
     width: 100%;
 }
 
-.modal-shop-products{
-    position: fixed;
-    top: 45%;
-}
 
 .modal-shop-text select{
     width: 100%;
@@ -90,7 +89,9 @@
 .close{
     background: var(--strong-gray);
     border-radius: 50%;
-    float: right;
+    position: absolute;
+    right: 10px;
+    top: 10px;
     padding: 15px;   
     color: white;    
     cursor: pointer;
@@ -129,4 +130,31 @@
     cursor: pointer;
     outline: inherit;
     font-size: 1.2rem;
+}
+
+.llamarM{
+    width: 100%;
+}
+
+.flexRamdon{
+    width: 100%;
+    display: flex;   
+}
+
+.producto1, .producto2{
+    
+    padding: 5px;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.producto1 .btn,
+.producto2 .btn{
+    background: var(--btn-color);
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
 }

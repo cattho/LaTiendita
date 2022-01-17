@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     getData('http://localhost:4000/Productos/')        
     abrir()
     cerrando()
-    ramdonProducts()           
+               
 })
 
 
@@ -110,14 +110,22 @@ async function showModalDescription (id) {
             unidadMedida= 'U'
             cantidad= '1'
         }
+        const contenedorModal= document.createElement('div')
+        contenedorModal.classList.add('modal-shop-container')
+        // const contenedorVenta= document.createElement('div')
+        // contenedorVenta.classList.add('modal-shop-description')
         
-        llamarM.classList.add('modal-shop-description')
-        llamarM.innerHTML=`
-        <div class="modal-shop-container">         
-            <label class="close fas fa-times" for="cart-btn"></label>
-                    
-            <div class="modal-shop-image">
-                <img src= ${image} alt="">
+
+        
+        contenedorModal.innerHTML=`                 
+            <div class="descripcion">
+
+            <div class ="contenedorVenta">
+                <label class="close fas fa-times" for="cart-btn"></label>
+                        
+                <div class="modal-shop-image">
+                    <img src= ${image} alt="">
+                </div>
             </div>
                     
             <div class="modal-shop-text">
@@ -140,29 +148,70 @@ async function showModalDescription (id) {
 
                     </div>
 
-                    <input value="Agregar" type="submit" class="btn btn-agregar-modal" id=${id}>
-                    
-                    
-            </div>
-
-                <div class="modal-shop-products">
-                    <h1>Productos Relacionados</h1>
-                </div>
-        </div> 
+                    <input value="Agregar" type="submit" class="btn btn-agregar-modal" id=${id}>            
+            </div>           
+            </div>       
         `
+        
+        ramdonProducts(contenedorModal)
+        llamarM.appendChild(contenedorModal)
         sumarRestar() 
     }
    
+
 // funcion para sacar productos del json de manera aleatoria
- async function ramdonProducts(){
+ async function ramdonProducts(elementosRamdon){
      const respuesta = await fetch('http://localhost:4000/Productos/')
      data = await respuesta.json()
 
+
      const productoRamdon= data[Math.floor(Math.random()*data.length)+1]
      const productoRamdonDos= data[Math.floor(Math.random()*data.length)+1]
-
+     const ramproductDiv= document.createElement('div')
+     ramproductDiv.classList.add('container-ramdon-products')
+     
+// dibujando cajita de productos
      console.log(productoRamdon, productoRamdonDos, "prueba");
 
+     ramproductDiv.innerHTML+=`             
+            <div class="modal-shop-products">                
+            <h1>Productos Relacionados</h1>
+               
+            <div class="flexRamdon">
+                    <div class= "producto1">
+                                            
+                    <div class="ramdonImageUno">
+                        <img src= ${productoRamdon.image} alt="">
+                    </div>
+                    
+                    <div class="ramdonDescriptionUno">
+                        <h1>${productoRamdon.producto}</h1>
+                        <h3>$ ${productoRamdon.precio}/kg</h3>
+                        <p class="textIVA">Precios con IVA incluido</p>
+                    </div>
+
+                    <input value="Agregar" type="submit" class="btn btn-agregar-modal" id=${productoRamdon.id}>
+                </div>
+
+                <div class= "producto2">
+                                
+                    <div class="ramdonImageDos">
+                        <img src= ${productoRamdonDos.image} alt="">
+                    </div>
+                    
+                    <div class="ramdonDescriptionDos">
+                        <h1>${productoRamdonDos.producto}</h1>
+                        <h3>$ ${productoRamdonDos.precio}/kg</h3>
+                        <p class="textIVA">Precios con IVA incluido</p>
+                    </div>
+                    <input value="Agregar" type="submit" class="btn btn-agregar-modal" id=${productoRamdonDos.id}>
+                </div>               
+            </div>
+                
+            </div>
+        
+        `
+        elementosRamdon.appendChild(ramproductDiv)
 }
 
 function sumarRestar(){
@@ -241,7 +290,7 @@ llamarM.addEventListener('click', async e =>{
  datares["cantidad"]=parseInt(document.querySelector('.medidaProducto').textContent)
         
                
-// aca recorro el arreglo comparando element por element para no agregar productos iguales al localStorage      
+// aca recorro el arreglo comparando elemento por elemento para no agregar productos iguales al localStorage      
           
     const exisProduct= listaProducts.find(p => p.id === Number(id)) 
 
