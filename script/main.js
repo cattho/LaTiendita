@@ -7,6 +7,7 @@ const header= document.querySelector('header');
 const ubicacionPin= document.querySelector('.ubicacion');
 const cartPadre=document.querySelector('.cart-padre');
 const cerrarCarrito= document.querySelector('.cerrarCarrito')
+const backgroundCarrito=document.querySelector('.cartBackground')
 
 let geolocalizacion ='';
 
@@ -21,8 +22,7 @@ let medidaproducto="" ;
 document.addEventListener('DOMContentLoaded', () =>{
     getData('http://localhost:4000/Productos/')        
     abrir()
-    cerrando()
-               
+    cerrando()              
 })
 
 
@@ -112,9 +112,7 @@ async function showModalDescription (id) {
         }
         const contenedorModal= document.createElement('div')
         contenedorModal.classList.add('modal-shop-container')
-        // const contenedorVenta= document.createElement('div')
-        // contenedorVenta.classList.add('modal-shop-description')
-        
+              
 
         
         contenedorModal.innerHTML=`                 
@@ -170,7 +168,7 @@ async function showModalDescription (id) {
      const ramproductDiv= document.createElement('div')
      ramproductDiv.classList.add('container-ramdon-products')
      
-// dibujando cajita de productos
+// dibujando cajita de productos en el modal
      console.log(productoRamdon, productoRamdonDos, "prueba");
 
      ramproductDiv.innerHTML+=`             
@@ -232,17 +230,17 @@ function sumarRestar(){
 }
 
     // abrir modal
-    const abrir= ()=>{
+const abrir= ()=>{
 
-        document.addEventListener("click",(e)=>{               
-            if(e.target.classList.contains("open-mod")){
-                const papitoidmodal= e.target.id
-                
-                showModalDescription(papitoidmodal)
-                llamarM.style.opacity = "1";
-                llamarM.style.visibility = "visible";
-            }             
-        })      
+    document.addEventListener("click",(e)=>{               
+        if(e.target.classList.contains("open-mod")){
+            const papitoidmodal= e.target.id
+            
+            showModalDescription(papitoidmodal)
+            llamarM.style.opacity = "1";
+            llamarM.style.visibility = "visible";
+        }             
+    })      
 }
 
 // cerrar modal y carrito con boton
@@ -307,91 +305,94 @@ llamarM.addEventListener('click', async e =>{
 function renderCarrito() {   
     const carrito = document.querySelector('.cart-items-products')
     const itemsCarrito = JSON.parse(localStorage.getItem('productos'))
-    const textoCiudad=document.querySelector('.cart-location-city')
+    const textoCiudad=document.querySelector('.cart-location-city')   
     
 
     
-    // Agrego la ubicacion que el usuario introdujo
-    carrito.innerHTML=''
-    if( geolocalizacion ===''){
-        textoCiudad.textContent=' Escoge tu ciudad'
-    }else{
-        textoCiudad.textContent=`${geolocalizacion}`
-    }
-   
+
+// Agrego la ubicacion que el usuario introdujo
+carrito.innerHTML=''
+if( geolocalizacion ===''){
+    textoCiudad.textContent=' Escoge tu ciudad'
+}else{
+    textoCiudad.textContent=`${geolocalizacion}`
+}
+
 
 itemsCarrito.forEach(productoCart =>{
 
         
-     const {producto,precio,image, id, categoria,cantidad} = productoCart;
-     const contenedorProducto = document.createElement('div')     
+const {producto,precio,image, id, categoria,cantidad} = productoCart;
+const contenedorProducto = document.createElement('div')     
 
-     
-     let unidadMedida=''
-     
-     if(categoria === 'Alimentos'){
-         unidadMedida= 'gr'
-         
-     }else{
-         unidadMedida= 'U'         
-     }
-     
-     contenedorProducto.innerHTML += `
-     
-            <div class="cart-item">                    
-                    <img src="${image}" alt="">
-                    <div class="content">
-                        <h3 id="${id}">${producto}</h3>
-                        <div class="price"> $ ${precio}</div>
-                    </div>
-                    
-            </div>
+contenedorProducto.innerHTML=''
+
+let unidadMedida=''
+
+    if(categoria === 'Alimentos'){
+        unidadMedida= 'gr'
+        
+    }else{
+        unidadMedida= 'U'         
+    }
+
+    contenedorProducto.innerHTML += `
+
+        <div class="cart-item">                    
+                <img src="${image}" alt="">
+                <div class="content">
+                    <h3 id="${id}">${producto}</h3>
+                    <div class="price"> $ ${precio}</div>
+                </div>
+                
+        </div>
         `
-        const btnSumaResta = document.createElement('div')
-        btnSumaResta.classList.add('btnSumResta')
-        const btnMenos= document.createElement('button')
-        btnMenos.classList.add('btnresta')
-        btnMenos.textContent='-'
-        const btnCantidad= document.createElement('p')
-        btnCantidad.classList.add('medidaProducto')
-        btnCantidad.innerHTML=`${cantidad} ${unidadMedida}`
-        const btnMas= document.createElement('button')
-        btnMas.classList.add('btnsuma')
-        btnMas.textContent='+'
+
+const btnSumaResta = document.createElement('div')
+btnSumaResta.classList.add('btnSumResta')
+const btnMenos= document.createElement('button')
+btnMenos.classList.add('btnresta')
+btnMenos.textContent='-'
+const btnCantidad= document.createElement('p')
+btnCantidad.classList.add('medidaProducto')
+btnCantidad.innerHTML=`${cantidad} ${unidadMedida}`
+const btnMas= document.createElement('button')
+btnMas.classList.add('btnsuma')
+btnMas.textContent='+'
 
         
 
-        // ademas de sumar y restar, estoy actualizando el localStorage para que actualice el numero de productos que escoge el usuario
-        btnMenos.addEventListener('click',()=>{
-            if(parseInt(btnCantidad.innerHTML)>1){
-                btnCantidad.innerHTML=parseInt(btnCantidad.innerHTML)-1+ ' '+unidadMedida            }
-            productoCart.cantidad=parseInt(btnCantidad.innerHTML)
-            console.log(productoCart);
-        })
-
-        btnMas.addEventListener('click',()=>{
-              
-                btnCantidad.innerHTML=parseInt(btnCantidad.innerHTML)+1+ ' '+ unidadMedida
-                productoCart.cantidad=parseInt(btnCantidad.innerHTML)
-        })
-    
-
-        btnSumaResta.appendChild(btnMenos)
-        btnSumaResta.appendChild(btnCantidad)
-        btnSumaResta.appendChild(btnMas)
-   
-    contenedorProducto.appendChild(btnSumaResta)
-    carrito.appendChild(contenedorProducto)
-    sumarRestar()        
+// ademas de sumar y restar, estoy actualizando el localStorage para que actualice el numero de productos que escoge el usuario
+btnMenos.addEventListener('click',()=>{
+    if(parseInt(btnCantidad.innerHTML)>1){
+        btnCantidad.innerHTML=parseInt(btnCantidad.innerHTML)-1+ ' '+unidadMedida            }
+    productoCart.cantidad=parseInt(btnCantidad.innerHTML)
+    console.log(productoCart);
 })
-    
+
+btnMas.addEventListener('click',()=>{
+        
+        btnCantidad.innerHTML=parseInt(btnCantidad.innerHTML)+1+ ' '+ unidadMedida
+        productoCart.cantidad=parseInt(btnCantidad.innerHTML)
+})
+
+
+btnSumaResta.appendChild(btnMenos)
+btnSumaResta.appendChild(btnCantidad)
+btnSumaResta.appendChild(btnMas)
+
+contenedorProducto.appendChild(btnSumaResta)
+carrito.appendChild(contenedorProducto)    
+sumarRestar()        
+})
+
 }
 
 //  boton carrito de compras
 document.querySelector('#cart-btn').onclick=()=>{        
     cartItem.classList.toggle('active');
-    header.classList.remove('active');
-    cartPadre.classList.add('active')         
+    header.classList.remove('active');    
+    cartPadre.classList.add('active');        
     renderCarrito()
     
 }
