@@ -46,7 +46,8 @@
     display: flex;
     width: 100%;
     height: 100%;
-    visibility: visible;
+    position: relative;
+    display: none;
 }
 
 .imageBackground{
@@ -138,4 +139,10 @@
 .header .cart-items-container .btn{
     width: 100%;
     text-align: center;
+}
+
+.btn-cart{
+   border: 1px solid red;
+   display: flex;  
+   margin-left: 200px;
 }

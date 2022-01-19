@@ -305,7 +305,8 @@ llamarM.addEventListener('click', async e =>{
 function renderCarrito() {   
     const carrito = document.querySelector('.cart-items-products')
     const itemsCarrito = JSON.parse(localStorage.getItem('productos'))
-    const textoCiudad=document.querySelector('.cart-location-city')   
+    const textoCiudad=document.querySelector('.cart-location-city')
+    const fondoCarrito=document.querySelector('.cartBackground')   
     
 
     
@@ -335,7 +336,7 @@ let unidadMedida=''
     }else{
         unidadMedida= 'U'         
     }
-
+    fondoCarrito.innerHTML=''
     contenedorProducto.innerHTML += `
 
         <div class="cart-item">                    
@@ -343,10 +344,16 @@ let unidadMedida=''
                 <div class="content">
                     <h3 id="${id}">${producto}</h3>
                     <div class="price"> $ ${precio}</div>
-                </div>
+                </div>            
                 
         </div>
         `
+
+    //     <div class="btn-cart">
+    //     <div class="cartBtn">
+    //         <a class="btn" href="/src/Pago.html">Ir a pagar</a>
+    //     </div>
+    // </div>
 
 const btnSumaResta = document.createElement('div')
 btnSumaResta.classList.add('btnSumResta')
