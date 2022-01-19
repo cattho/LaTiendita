@@ -326,6 +326,7 @@ itemsCarrito.forEach(productoCart =>{
 const {producto,precio,image, id, categoria,cantidad} = productoCart;
 const contenedorProducto = document.createElement('div')     
 
+fondoCarrito.innerHTML=''
 contenedorProducto.innerHTML=''
 
 let unidadMedida=''
@@ -336,7 +337,7 @@ let unidadMedida=''
     }else{
         unidadMedida= 'U'         
     }
-    fondoCarrito.innerHTML=''
+   
     contenedorProducto.innerHTML += `
 
         <div class="cart-item">                    
