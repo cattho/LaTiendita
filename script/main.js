@@ -77,14 +77,15 @@ function showContent(showProducts){
     productos.innerHTML=''    
 
     showProducts.forEach((card) => {
-        const {producto,precio,image, id}=card               
+        const {producto,precio,image, id}=card 
+        const precioReal= (precio*32/100)+precio             
 
         const bodyElement= document.createElement('div')
         bodyElement.classList.add('product')
         bodyElement.innerHTML=`
             <div class="descuento">32% dto.</div>
                 <img src="${image}" alt="">
-                <div class="precio"> $ ${precio} <span>39.9/kg</span></div>
+                <div class="precio"> $ ${precio} <span>${precioReal}</span></div>
                     <h3>${producto}</h3>
                     <button id="${id}" class="btn open-mod" type="submit">Agregar</button>
                     `    
@@ -349,24 +350,20 @@ let unidadMedida=''
                 
         </div>
         `
+    
+    const btnSumaResta = document.createElement('div')
+    btnSumaResta.classList.add('btnSumResta')
+    const btnMenos= document.createElement('button')
+    btnMenos.classList.add('btnresta')
+    btnMenos.textContent='-'
+    const btnCantidad= document.createElement('p')
+    btnCantidad.classList.add('medidaProducto')
+    btnCantidad.innerHTML=`${cantidad} ${unidadMedida}`
+    const btnMas= document.createElement('button')
+    btnMas.classList.add('btnsuma')      
+    btnMas.textContent='+'
 
-    //     <div class="btn-cart">
-    //     <div class="cartBtn">
-    //         <a class="btn" href="/src/Pago.html">Ir a pagar</a>
-    //     </div>
-    // </div>
-
-const btnSumaResta = document.createElement('div')
-btnSumaResta.classList.add('btnSumResta')
-const btnMenos= document.createElement('button')
-btnMenos.classList.add('btnresta')
-btnMenos.textContent='-'
-const btnCantidad= document.createElement('p')
-btnCantidad.classList.add('medidaProducto')
-btnCantidad.innerHTML=`${cantidad} ${unidadMedida}`
-const btnMas= document.createElement('button')
-btnMas.classList.add('btnsuma')
-btnMas.textContent='+'
+    
 
         
 
@@ -418,4 +415,3 @@ window.onscroll=()=>{
     header.classList.remove('active');    
     cartItem.classList.remove('active');
 }
-
