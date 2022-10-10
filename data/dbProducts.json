@@ -1,116 +1,116 @@
 {
-    "Productos":[
-    {
-      "producto": "Aguacate",
-      "categoria": "Alimentos",
-      "id": 1,
-      "precio": 2800,
-      "image": "../images/aguacate.png"
-    },
-    {
-      "producto": "Ambientador",
-      "categoria": "Productos de aseo",
-      "id": 2,
-      "precio": 12200,
-      "image": "../images/ambientador.png"
-    },
-    {
-      "producto": "Coca-Cola sin azucar",
-      "categoria": "producto",
-      "id": 3,
-      "precio": 3990,
-      "image": "../images/coca_nosugar.png"
-    },
-    {
-      "producto": "Coca-cola Original",
-      "categoria": "producto",
-      "id": 4,
-      "precio": 3990,
-      "image": "../images/coca_original_600ml.png"
-    },
-    {
-      "producto": "Huevos",
-      "categoria": "producto",
-      "id": 5,
-      "precio": 11042,
-      "image": "../images/huevos.png"
-    },
-    {
-      "producto": "Limón",
-      "categoria": "Alimentos",
-      "id": 6,
-      "precio": 2000,
-      "image": "../images/limon.png"
-    },
-    {
-      "producto": "Manzana Verde",
-      "categoria": "Alimentos",
-      "id": 7,
-      "precio": 3800,
-      "image": "../images/manzana_verde.png"
-    },
-    {
-      "producto": "Mayonesa",
-      "categoria": "producto",
-      "id": 8,
-      "precio": 8813,
-      "image": "../images/mayonesa.png"
-    },
-    {
-      "producto": "Naranja",
-      "categoria": "Alimentos",
-      "id": 9,
-      "precio": 1418,
-      "image": "../images/naranja.png"
-    },
-    {
-      "producto": "Nopal limpio",
-      "categoria": "Alimentos",
-      "id": 10,
-      "precio": 11715,
-      "image": "../images/nopal.png"
-    },
-    {
-      "producto": "Pan Bimbo",
-      "categoria": "producto",
-      "id": 11,
-      "precio": 5790,
-      "image": "../images/pan_bimbo_tajado_blanco.png"
-    },
-    {
-      "producto": "Crema dental",
-      "categoria": "Productos de aseo",
-      "id": 12,
-      "precio": 11613,
-      "image": "../images/pasta_dientes.png"
-    },
-    {
-      "producto": "Pechuga de pavo",
-      "categoria": "Alimentos",
-      "id": 13,
-      "precio": 28000,
-      "image": "../images/pechuga_pavo.png"
-    },
-    {
-      "producto": "Tomate de arbol",
-      "categoria": "Alimentos",
-      "id": 14,
-      "precio": 1925,
-      "image": "../images/tomate_arbol.png"
-    },
-    {
-      "producto": "Tomate rojo",
-      "categoria": "Alimentos",
-      "id": 15,
-      "precio": 2189,
-      "image": "../images/tomate_rojo.png"
-    },
-    {
-      "producto": "Tomate verde",
-      "categoria": "Alimentos",
-      "id": 16,
-      "precio": 2300,
-      "image": "../images/tomate_verde.png"
-    }
-  ]
+  "Productos":[
+  {
+    "producto": "Aguacate",
+    "categoria": "Alimentos",
+    "id": 1,
+    "precio": 2800,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405303/tiendita/lohgdknssnqorwcx1dn2.png"
+  },
+  {
+    "producto": "Ambientador",
+    "categoria": "Productos de aseo",
+    "id": 2,
+    "precio": 12200,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405303/tiendita/iolz2vv53svc0tca3nrg.png"
+  },
+  {
+    "producto": "Coca-Cola sin azucar",
+    "categoria": "producto",
+    "id": 3,
+    "precio": 3990,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405303/tiendita/c59h0zdahsduxmfjvllm.png"
+  },
+  {
+    "producto": "Coca-cola Original",
+    "categoria": "producto",
+    "id": 4,
+    "precio": 3990,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405303/tiendita/f0uvunpvyv8jgeyc1zgc.png"
+  },
+  {
+    "producto": "Huevos",
+    "categoria": "producto",
+    "id": 5,
+    "precio": 11042,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/g0zmtr39u6tyexzfbjb6.png"
+  },
+  {
+    "producto": "Limón",
+    "categoria": "Alimentos",
+    "id": 6,
+    "precio": 2000,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405304/tiendita/wbqekfcga6m3yy4l8cpt.png"
+  },
+  {
+    "producto": "Manzana Verde",
+    "categoria": "Alimentos",
+    "id": 7,
+    "precio": 3800,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405304/tiendita/x3gck4ehclknvd1czwgh.png"
+  },
+  {
+    "producto": "Mayonesa",
+    "categoria": "producto",
+    "id": 8,
+    "precio": 8813,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405304/tiendita/gigz3qglbtigamxv8cy2.png"
+  },
+  {
+    "producto": "Naranja",
+    "categoria": "Alimentos",
+    "id": 9,
+    "precio": 1418,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405304/tiendita/puejiwihkw80ikrmgx0w.png"
+  },
+  {
+    "producto": "Nopal limpio",
+    "categoria": "Alimentos",
+    "id": 10,
+    "precio": 11715,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/cxt39kwsg1otfykv2k2x.png"
+  },
+  {
+    "producto": "Pan Bimbo",
+    "categoria": "producto",
+    "id": 11,
+    "precio": 5790,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/rmvsblwtnovcjhevfika.png"
+  },
+  {
+    "producto": "Crema dental",
+    "categoria": "Productos de aseo",
+    "id": 12,
+    "precio": 11613,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/vpunvlmuh2ffi0t5fpa3.png"
+  },
+  {
+    "producto": "Pechuga de pavo",
+    "categoria": "Alimentos",
+    "id": 13,
+    "precio": 28000,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/qn474vqhtc5za1kssofr.png"
+  },
+  {
+    "producto": "Tomate de arbol",
+    "categoria": "Alimentos",
+    "id": 14,
+    "precio": 1925,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/avzmnfrx9iovw74pmp2s.png"
+  },
+  {
+    "producto": "Tomate rojo",
+    "categoria": "Alimentos",
+    "id": 15,
+    "precio": 2189,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/cleybbsvnymbouefwgtv.png"
+  },
+  {
+    "producto": "Tomate verde",
+    "categoria": "Alimentos",
+    "id": 16,
+    "precio": 2300,
+    "image": "https://res.cloudinary.com/dfp8qduho/image/upload/v1665405305/tiendita/hklxwsr3itxim5vohngb.png"
+  }
+]
 }
