@@ -8,23 +8,19 @@ const ubicacionPin = document.querySelector('.ubicacion');
 const cartPadre = document.querySelector('.cart-padre');
 const cerrarCarrito = document.querySelector('.cerrarCarrito');
 const backgroundCarrito = document.querySelector('.cartBackground');
+const apiUrl = 'https://apimocha.com/tiendita/post';
+
 
 let geolocalizacion = '';
-
-
-
-
 let btnrestar = "";
 let btnsumar = "";
 let medidaproducto = "";
-
 
 document.addEventListener('DOMContentLoaded', () => {
     getData()
     abrir()
     cerrando()
-})
-
+});
 
 // modal ubicacion hecho con SweetAlert
 ubicacionPin.addEventListener('click', async () => {
@@ -55,30 +51,27 @@ ubicacionPin.addEventListener('click', async () => {
         Swal.fire(`Haz seleccionado: ${ciudad}`)
         geolocalizacion = ciudad
     }
-})
+});
 
 
-let apiUrl = 'https://apimocha.com/tiendita/post';
 // data capture//
 const getData = async () => {
     try {
-        const res = await fetch(apiUrl)
-        const data = await res.json()
-        showContent(data.Productos)
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        showContent(data.Productos);
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 //show content
-
 function showContent(showProducts) {
-    // productos.innerHTML = ''
-
+    productos.innerHTML = ''
     showProducts.forEach((card) => {
-        const { producto, precio, image, id } = card
-        const precioReal = (precio * 32 / 100) + precio
-        const bodyElement = document.createElement('div')
+        const { producto, precio, image, id } = card;
+        const precioReal = (precio * 32 / 100) + precio;
+        const bodyElement = document.createElement('div');
 
         bodyElement.classList.add('product')
         bodyElement.innerHTML = `
@@ -88,26 +81,21 @@ function showContent(showProducts) {
                     <h3>${producto}</h3>
                     <button id="${id}" class="btn open-mod" type="submit">Agregar</button>
                     `
-        productos.appendChild(bodyElement)
+        productos.appendChild(bodyElement);
     });
 }
 
 // creacion modal descripcion
-
 async function showModalDescription(id) {
 
     llamarM.innerHTML = '';
     const resp = await fetch(apiUrl);
     const data = await resp.json();
-    const res = data.Productos;
+    const respuesta = data.Productos;
 
-    console.log(res);
 
     let unidadMedida = '';
     let cantidad = '';
-    const { producto, precio, image, categoria } = res;
-
-    console.log(data.Productos.producto);
 
     if (categoria === 'Alimentos') {
         unidadMedida = 'gr'
@@ -118,41 +106,43 @@ async function showModalDescription(id) {
     }
     const contenedorModal = document.createElement('div');
     contenedorModal.classList.add('modal-shop-container');
-    contenedorModal.innerHTML = `                 
-            <div class="descripcion">
+    respuesta.forEach(r => {
+        contenedorModal.innerHTML = `                 
+    <div class="descripcion">
 
-            <div class ="contenedorVenta">
-                <label class="close fas fa-times" for="cart-btn"></label>
-                        
-                <div class="modal-shop-image">
-                    <img src= ${image} alt="">
-                </div>
+    <div class ="contenedorVenta">
+        <label class="close fas fa-times" for="cart-btn"></label>
+                
+        <div class="modal-shop-image">
+            <img src= ${r.image} alt="">
+        </div>
+    </div>
+            
+    <div class="modal-shop-text">
+        <h1>${r.producto}</h1>
+        <h3>$ ${r.precio}</h3>
+        <p class="textIVA">Precios con IVA incluido</p>
+        <P>Peso aproximado por pieza, puede variar de acuerdo al peso real.</P>
+        <label class="madurez" for="madurez">Selecciona la madurez que deseas</label>
+            <select name="madurez" id="">
+                <option value="" selected disabled>Por elegir</option>
+                <option value="maduro">Maduro (Para hoy)</option>
+                <option value="normal">Normal (3-5 días)</option>
+                <option value="verde">Verde (7 días)</option>
+                <a href="#" class="btn">Agregar</a>
+            </select>
+            <div class="btnSumResta">
+                <button class="btnresta" id="btnRestar">- </button>
+                <span min="200" max="400" type="number" name="" id="medidaProducto" class= "medidaProducto"> ${r.cantidad} ${r.unidadMedida} </span> 
+                <button class="btnsuma" id="btnSumar"> +</button>
+
             </div>
-                    
-            <div class="modal-shop-text">
-                <h1>${producto}</h1>
-                <h3>$ ${precio}</h3>
-                <p class="textIVA">Precios con IVA incluido</p>
-                <P>Peso aproximado por pieza, puede variar de acuerdo al peso real.</P>
-                <label class="madurez" for="madurez">Selecciona la madurez que deseas</label>
-                    <select name="madurez" id="">
-                        <option value="" selected disabled>Por elegir</option>
-                        <option value="maduro">Maduro (Para hoy)</option>
-                        <option value="normal">Normal (3-5 días)</option>
-                        <option value="verde">Verde (7 días)</option>
-                        <a href="#" class="btn">Agregar</a>
-                    </select>
-                    <div class="btnSumResta">
-                        <button class="btnresta" id="btnRestar">- </button>
-                        <span min="200" max="400" type="number" name="" id="medidaProducto" class= "medidaProducto"> ${cantidad} ${unidadMedida} </span> 
-                        <button class="btnsuma" id="btnSumar"> +</button>
 
-                    </div>
-
-                    <input value="Agregar" type="submit" class="btn btn-agregar-modal" id=${id}>            
-            </div>           
-            </div>       
-        `
+            <input value="Agregar" type="submit" class="btn btn-agregar-modal" id=${r.id}>            
+    </div>           
+    </div>       
+`
+    })
 
     ramdonProducts(contenedorModal)
     llamarM.appendChild(contenedorModal)
